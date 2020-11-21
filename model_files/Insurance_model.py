@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
-import pickle
+
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
-#from sklearn.metrics import classification_report
-#from catboost import CatBoostClassifier
-#from sklearn.metrics import roc_auc_score
+# from sklearn.metrics import classification_report
+# from catboost import CatBoostClassifier
+# from sklearn.metrics import roc_auc_score
 
+'''
 def load():
     train= pd.read_csv("train.csv")
     test = pd.read_csv("test.csv")
@@ -43,7 +44,7 @@ def smote(train):
     trainx_over,testx_over,trainy_over,testy_over = train_test_split(oversampled_train[params],oversampled_train['Response'],test_size=0.10,random_state=42,shuffle=True)
     return trainx_over,testx_over,trainy_over,testy_over
 
-'''
+
 #model development
 def model(trainx_over,trainy_over,testx_over,testy_over):
     cat_feature =['Gender','Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage','Age_bin']
@@ -81,8 +82,11 @@ def preprocessing2(data):
 
 
 '''
-params=['Gender', 'Age_bin', 'Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage','Annual_Premium']
+
+
 def preprocessing(values):
+    params = ['Gender', 'Age_bin', 'Driving_License', 'Previously_Insured', 'Vehicle_Age', 'Vehicle_Damage',
+              'Annual_Premium']
     data = pd.DataFrame(values.reshape(1,7),columns=params)
     age =data['Age_bin']
     data.drop('Age_bin',axis=1,inplace=True)
