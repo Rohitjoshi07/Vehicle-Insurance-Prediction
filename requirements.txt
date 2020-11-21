@@ -21,3 +21,4 @@ scipy==1.5.4
 six==1.15.0
 threadpoolctl==2.1.0
 Werkzeug==0.15.5
+catboost
