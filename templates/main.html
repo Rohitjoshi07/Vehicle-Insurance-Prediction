@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+    <head>
+        <meta charset="UTF-8">
+        <title>Insurance API</title>
+        <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+        <!-- LINK CSS FILE -->
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+       <body>
+            <div class="login">
+                <h1>VEHICLE INSURANCE PREDICTION</h1>
+              <form action = {{ url_for("predict") }} method="POST">
+
+                  <label for="Gender">Gender
+                    <select id="Gender" name="Gender"  class="in">
+                      <option value="1">Male</option>
+                      <option value="0">Female</option>
+                    </select>
+                  </label>
+
+
+                  <label for="Age_bin">Age
+                    <select id="Age_bin" name="Age_bin" class="in">
+                      <option value="0"><33</option>
+                      <option value="1">34-46</option>
+                      <option value="2">47-59</option>
+                      <option value="3">60-72</option>
+                      <option value="4"><72</option>
+                    </select>
+                  </label>
+
+                  <label for="Driving_License">    Driving License
+                    <select id="Driving_License" name="Driving_License" class="in">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </label>
+
+
+                  <label for="Previously_Insured">    Previously Insured
+                    <select id="Previously_Insured" name="Previously Insured" class="in">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </label>
+                    <br><br>
+
+
+
+                  <label for="Vehicle_Age">Vehicle Age
+                    <select id="Vehicle_Age" name="Vehicle Age" class="in">
+                      <option value="0">> 2 Years</option>
+                      <option value="2">1-2 Year</option>
+                      <option value="1">< 1 Year</option>
+                    </select>
+                  </label>
+
+                  <label for="Vehicle_Damage">Vehicle Damage
+                    <select id="Vehicle_Damage" name="Vehicle Damage" class="in">
+                      <option value="1">Yes</option>
+                      <option value="0">No</option>
+                    </select>
+                  </label>
+
+
+                  <label>    Annual_Premium <input type ="number" min="0" name = "Annual Premium Amount" class="in"/>
+                  </label>
+                  <br><br>
+                    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+
+
+
+              </form>
+             <br>
+             {{prediction_text}}
+
+
+            </div>
+       </body>
+</html>
