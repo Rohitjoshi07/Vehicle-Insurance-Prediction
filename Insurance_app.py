@@ -6,11 +6,11 @@ import pickle
 from model_files.Insurance_model import preprocessing
 
 
-model = pickle.load(open("model_files\cat_model.pkl",'rb'))
+model = pickle.load(open("cat_model.pkl",'rb'))
 params=['Gender', 'Age_bin', 'Driving_License','Previously_Insured','Vehicle_Age','Vehicle_Damage','Annual_Premium']
 
 
-app = Flask(__name__)
+app= Flask(__name__)
 
 
 @app.route('/')
